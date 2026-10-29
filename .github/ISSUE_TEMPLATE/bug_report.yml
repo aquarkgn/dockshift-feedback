@@ -1,0 +1,52 @@
+name: Bug Report / Conversion Issue
+description: Report an unsupported Docker CLI flag or incorrect conversion output
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve DockShift! Please ensure sensitive credentials/tokens are removed before submitting.
+  - type: dropdown
+    id: conversion_type
+    attributes:
+      label: Conversion Direction
+      description: Which tool/mode did you use?
+      options:
+        - "Docker Run -> Docker Compose YAML"
+        - "Docker Compose YAML -> Docker Run"
+        - "Docker Compose -> Kubernetes YAML"
+        - "JSON AST Export"
+        - "Prompt Skill / IDE Integration"
+    validations:
+      required: true
+  - type: textarea
+    id: input_data
+    attributes:
+      label: Input Command / Configuration
+      description: Paste the exact command or YAML that caused the issue.
+      placeholder: "docker run -d --name my-app -p 8080:80 ..."
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected_output
+    attributes:
+      label: Expected Output
+      description: What should the correct output look like?
+      placeholder: "Expected YAML or CLI command..."
+    validations:
+      required: true
+  - type: textarea
+    id: actual_output
+    attributes:
+      label: Actual Output or Error
+      description: What did DockShift output or display?
+      placeholder: "Error message or incorrect YAML..."
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any browser version, specific Docker version, or notes.
